@@ -36,7 +36,7 @@ snippet const
 snippet i
 	integer :: ${1}
 snippet r
-	real :: ${1}
+	real (kind = 8) :: ${1}
 snippet l
 	logical :: ${1}
 snippet c
@@ -45,4 +45,16 @@ snippet s
 	character(len=${1}) :: ${2}
 snippet t
 	type(${1}) :: ${2}
-
+snippet ia 
+	integer(kind = ${1:4}), dimension(${2:size}) :: ${3:name}
+snippet ra 
+	real(kind = ${1:8}), dimension(${2:size}) :: ${3:name}
+snippet iaa 
+	integer(kind = ${1:4}), dimension(${2::}), allocatable :: ${3:name}
+snippet raa 
+	real(kind = ${1:8}), dimension(${2::}), allocatable :: ${3:name}
+snippet mod "module" b
+	module ${1:name}
+	implicit none
+	${2:! code}
+	end module $1
